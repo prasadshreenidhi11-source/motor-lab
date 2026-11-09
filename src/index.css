@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Oxanium:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+:root {
+  font-family: "Barlow Condensed", Arial, sans-serif;
+  color: #e2e0da;
+  background: #070809;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --accent-rust: #a65e41;
+  --accent-cold: #91a1a3;
+  --color-bone: #e2e0da;
+  --color-muted: #969a9a;
+  --color-ink: #070809;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--color-ink);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  color: var(--color-ink);
+  background: var(--accent-rust);
+}

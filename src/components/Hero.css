@@ -1,0 +1,382 @@
+.hero {
+  --hero-ink: #070809;
+  --hero-bone: #e2e0da;
+  --hero-muted: #969a9a;
+  --hero-rust: #a65e41;
+  --hero-cold: #91a1a3;
+
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 700px;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--hero-bone);
+  background: var(--hero-ink);
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #08090a;
+}
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(5, 6, 7, 0.94) 0%, rgba(5, 6, 7, 0.76) 25%, rgba(5, 6, 7, 0.18) 62%, rgba(5, 6, 7, 0.36) 100%),
+    linear-gradient(0deg, rgba(4, 5, 6, 0.88) 0%, transparent 31%, rgba(4, 5, 6, 0.32) 100%),
+    radial-gradient(ellipse at 70% 47%, transparent 16%, rgba(0, 0, 0, 0.52) 100%);
+}
+
+.hero-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.09;
+  mix-blend-mode: screen;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(220, 224, 224, 0.12) 0,
+    rgba(220, 224, 224, 0.12) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+}
+
+.car-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.car-scene canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-top-label {
+  position: absolute;
+  z-index: 5;
+  top: clamp(112px, 15vh, 156px);
+  right: 7%;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #b7b8b4;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: var(--hero-rust);
+  box-shadow: 0 0 12px rgba(166, 94, 65, 0.8);
+  animation: signal-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes signal-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.hero-content {
+  position: absolute;
+  z-index: 5;
+  top: 51%;
+  left: 7%;
+  width: min(42vw, 590px);
+  transform: translateY(-50%);
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: clamp(22px, 3.4vh, 34px);
+  color: #c28465;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.hero-eyebrow span {
+  width: 42px;
+  height: 1px;
+  background: var(--hero-rust);
+  box-shadow: 0 0 10px rgba(166, 94, 65, 0.5);
+}
+
+.hero-content h1 {
+  margin: 0;
+  color: var(--hero-bone);
+  font-family: "Oxanium", "Barlow Condensed", sans-serif;
+  font-size: clamp(64px, 7.25vw, 132px);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+  text-transform: uppercase;
+  text-shadow: 0 6px 32px rgba(0, 0, 0, 0.42);
+}
+
+.hero-content h1 span {
+  color: #b77958;
+}
+
+.hero-description {
+  max-width: 430px;
+  margin-top: 27px;
+  color: #b4b5b1;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(17px, 1.25vw, 20px);
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.015em;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-top: 34px;
+}
+
+.hero-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 54px;
+  padding: 0 21px;
+  border: 1px solid rgba(190, 124, 89, 0.8);
+  background: linear-gradient(135deg, rgba(127, 68, 48, 0.92), rgba(77, 45, 36, 0.96));
+  color: #f0e9df;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.hero-primary-btn:hover {
+  transform: translateY(-2px);
+  border-color: #d08b68;
+  background: linear-gradient(135deg, #9a583e, #603a2f);
+}
+
+.hero-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: #c3c3be;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.play-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgba(193, 195, 191, 0.5);
+  border-radius: 50%;
+  color: #d2d2cc;
+  transition: border-color 180ms ease, color 180ms ease;
+}
+
+.hero-secondary-btn:hover .play-icon {
+  border-color: #c28465;
+  color: #c28465;
+}
+
+.hero-specs {
+  position: absolute;
+  z-index: 5;
+  right: 7%;
+  bottom: 23%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-right: 15px;
+  border-right: 1px solid rgba(177, 183, 181, 0.28);
+  text-align: right;
+}
+
+.hero-specs span {
+  color: #d0d0c9;
+  font-family: "Oxanium", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.hero-specs p {
+  margin-top: 4px;
+  color: #8b9292;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-bottom {
+  position: absolute;
+  z-index: 5;
+  right: 7%;
+  bottom: 0;
+  left: 7%;
+  display: flex;
+  height: 74px;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(202, 207, 204, 0.17);
+  color: #a2a6a4;
+}
+
+.hero-scroll {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #c28465;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.hero-bottom-center,
+.hero-bottom-right {
+  color: #828887;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .hero-content {
+    left: 6%;
+    width: min(53vw, 500px);
+  }
+
+  .hero-content h1 {
+    font-size: clamp(58px, 8vw, 94px);
+  }
+
+  .hero-top-label,
+  .hero-specs {
+    right: 6%;
+  }
+
+  .hero-bottom {
+    right: 6%;
+    left: 6%;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero {
+    min-height: 820px;
+    height: 100svh;
+  }
+
+  .hero-shade {
+    background:
+      linear-gradient(0deg, rgba(4, 5, 6, 0.9) 0%, rgba(4, 5, 6, 0.46) 48%, rgba(4, 5, 6, 0.56) 100%),
+      radial-gradient(ellipse at 58% 52%, transparent 8%, rgba(0, 0, 0, 0.55) 100%);
+  }
+
+  .hero-top-label {
+    top: 98px;
+    right: 6%;
+    left: 6%;
+    font-size: 9px;
+    letter-spacing: 0.13em;
+  }
+
+  .hero-content {
+    top: 39%;
+    right: 6%;
+    left: 6%;
+    width: auto;
+    transform: translateY(-30%);
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 20px;
+    font-size: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(52px, 13vw, 78px);
+    letter-spacing: -0.06em;
+  }
+
+  .hero-description {
+    max-width: 360px;
+    margin-top: 19px;
+    font-size: 17px;
+  }
+
+  .hero-buttons {
+    flex-wrap: wrap;
+    gap: 15px 20px;
+    margin-top: 24px;
+  }
+
+  .hero-primary-btn {
+    min-height: 48px;
+    padding: 0 15px;
+    font-size: 10px;
+  }
+
+  .hero-specs {
+    display: none;
+  }
+
+  .hero-bottom {
+    right: 6%;
+    left: 6%;
+    height: 60px;
+  }
+
+  .hero-bottom-center {
+    display: none;
+  }
+
+  .hero-bottom-right {
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot {
+    animation: none;
+  }
+
+  .hero-primary-btn,
+  .play-icon {
+    transition: none;
+  }
+}
